@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murdock Magician | The Secret of Live Magic</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2c3e70;
+            --accent: #f4c542;
+            --magic-red: #ff6b6b;
+            --whatsapp-green: #25D366;
+            --lavender: #f3eef7;
+            --mint: #eef9f6;
+            --shadow: 0 4px 15px rgba(44, 62, 112, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Nunito', sans-serif; color: #333; line-height: 1.6; padding-top: 80px; }
+        h1, h2, h3 { font-family: 'Cinzel', serif; }
+
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,.08); display: flex;
+            justify-content: space-between; align-items: center; padding: 15px 40px; z-index: 1000;
+        }
+
+        .logo a { text-decoration: none; color: var(--primary); font-family: 'Cinzel', serif; font-size: 32px; font-weight: 600; }
+        nav { display: flex; gap: 30px; }
+        nav a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--magic-red); }
+
+        .lang-btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd; cursor: pointer; overflow: hidden; padding: 0; margin-left: 10px; }
+        .lang-btn img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero {
+            min-height: 70vh; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden; padding: 4rem 5% 2rem;
+            background-color: #f9f9fb;
+        }
+
+        .star {
+            position: absolute; background: var(--accent); 
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0.5; animation: floatUp 8s linear infinite; bottom: -50px;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .hero-content { max-width: 850px; text-align: center; z-index: 10; position: relative; }
+        .hero h1 span { display: block; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: var(--magic-red); font-weight: 600; }
+        .hero h1 div { font-size: clamp(32px, 5vw, 56px); margin-bottom: 10px; color: var(--primary); }
+        
+        .btn { padding: 14px 0; width: 200px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; text-align: center; }
+        .btn-call { background: var(--accent); color: #222; margin-right: 10px; }
+        .btn-whatsapp { background: var(--whatsapp-green); color: #fff; }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .benefits-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 2rem; 
+            margin-bottom: 40px;
+            align-items: stretch;
+        }
+        
+        .benefit-box { 
+            background: white; 
+            padding: 2rem 1.5rem 1.5rem; 
+            border-radius: 15px; 
+            box-shadow: var(--shadow); 
+            display: flex; 
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(44, 62, 112, 0.15);
+        }
+
+        .card-header {
+            height: 130px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-wrap { 
+            height: 60px; 
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefit-box h3 {
+            font-size: 1.3rem; 
+            color: var(--primary);
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .benefit-text {
+            text-align: justify;
+            hyphens: auto;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+            flex-grow: 1;
+            padding: 0 5px;
+            margin-bottom: 2rem;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .source-link { 
+            display: block; 
+            font-size: 0.7rem; 
+            font-style: italic; 
+            opacity: 0.7; 
+            border-top: 1px solid #ddd; 
+            padding-top: 12px; 
+            color: #666;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .one-line-footer {
+            text-align: center; 
+            margin-top: 20px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 10px 20px; flex-direction: column; }
+            nav { margin: 15px 0; font-size: 14px; gap: 15px; }
+            body { padding-top: 140px; }
+            .one-line-footer { white-space: normal; }
+            .card-header { height: auto; margin-bottom: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="#">MURDOCK</a></div>
+      
+        <nav>
+            <a href="#gallery-preview" data-key="nav-gallery">Галерия</a>
+            <a href="#benefits" data-key="nav-benefits">Защо магия на живо?</a>
+            <a href="#about" data-key="nav-about">За мен</a>
+            <a href="#contact" data-key="nav-booking">Резервации</a>
+        </nav>
+      
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLanguage('bg')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/250px-Flag_of_Bulgaria.svg.png" alt="BG"></button>
+            <button class="lang-btn" onclick="setLanguage('en')"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" alt="EN"></button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="star" style="left: 10%; width: 12px; height: 12px; animation-duration: 7s;"></div>
+        <div class="star" style="left: 25%; width: 22px; height: 22px; animation-duration: 10s; animation-delay: 2s;"></div>
+        <div class="star" style="left: 45%; width: 15px; height: 15px; animation-duration: 8s; animation-delay: 1s;"></div>
+        <div class="star" style="left: 65%; width: 18px; height: 18px; animation-duration: 9s; animation-delay: 4s;"></div>
+        <div class="star" style="left: 85%; width: 20px; height: 20px; animation-duration: 11s; animation-delay: 0.5s;"></div>
+
+        <div class="hero-content">
+            <h1><span data-key="hero-sub">Представяме</span><div data-key="hero-title">Тайната на живата магия</div></h1>
+            <p data-key="hero-p" style="font-size: 1.5rem; font-weight: 600;">Въображението оживява</p>
+            <div class="hero-btns" style="margin-top: 20px;">
+                <a href="tel:+359899492627" class="btn btn-call" data-key="btn-call">📞 Обадете ми се</a>
+                <a href="https://wa.me/359899492627" class="btn btn-whatsapp" target="_blank" data-key="btn-wa">WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery-preview" style="background-color: var(--primary); padding: 80px 5%; scroll-margin-top: 80px; position: relative; overflow: hidden;">
+        <div class="star" style="right: 5%; top: 10%; width: 15px; height: 15px; opacity: 0.2;"></div>
+        
+        <div class="container">
+            <div style="display: flex; flex-direction: column; margin-bottom: 50px;">
+                <div style="text-align: left;">
+                    <h2 data-key="gallery-title" style="color: var(--accent); font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;">Позволете ми да ви покажа</h2>
+                    <div style="width: 40px; height: 3px; background: var(--magic-red); border-radius: 2px;"></div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: stretch;">
+                
+                <div style="flex: 1.2; min-width: 320px; background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border-bottom: 4px solid var(--accent);">
+                    <div style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer;">
+                        <img src="https://via.placeholder.com/600x400?text=Magic+Show+Video" style="width: 100%; display: block;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <div style="width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid white; margin-left: 5px;"></div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; font-family: 'Cinzel', serif; color: var(--primary); text-align: center; font-size: 0.9rem; letter-spacing: 1px;">ВИЖТЕ МАГИЯТА В ДЕЙСТВИЕ</p>
+                </div>
+
+                <div style="flex: 1; min-width: 300px; background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border-bottom: 4px solid var(--magic-red); display: flex; flex-direction: column; justify-content: space-between; cursor: pointer;" onclick="alert('Opening Gallery...')">
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div style="aspect-ratio: 1; background: var(--lavender); border-radius: 8px; overflow: hidden;">
+                             <img src="https://via.placeholder.com/150x150?text=1" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="aspect-ratio: 1; background: var(--lavender); border-radius: 8px; overflow: hidden;">
+                             <img src="https://via.placeholder.com/150x150?text=2" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="aspect-ratio: 1; background: var(--lavender); border-radius: 8px; overflow: hidden;">
+                             <img src="https://via.placeholder.com/150x150?text=3" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="aspect-ratio: 1; background: var(--lavender); border-radius: 8px; overflow: hidden;">
+                             <img src="https://via.placeholder.com/150x150?text=4" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center; border-top: 1px solid #eee; padding-top: 15px;">
+                        <span data-key="view-all" style="font-family: 'Cinzel', serif; color: var(--primary); font-weight: 600; font-size: 0.8rem; letter-spacing: 1px;">КЪМ ГАЛЕРИЯТА →</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" style="background-color: var(--lavender); padding: 60px 5%; scroll-margin-top: 80px;">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; margin-bottom: 25px; border-bottom: 1px solid rgba(44,62,112,0.1); padding-bottom: 10px;">
+                <div style="text-align: left;">
+                    <h2 data-key="benefits-title" style="color: var(--accent); font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;">Защо магия на живо?</h2>
+                    <div style="width: 40px; height: 3px; background: var(--magic-red); border-radius: 2px;"></div>
+                </div>
+                <div style="text-align: right; width: 100%; margin-top: -10px;">
+                    <h3 style="font-size: clamp(20px, 3vw, 28px); font-style: italic; color: var(--primary); opacity: 0.9;" data-key="benefits-quote">"Най-същественото е невидимо за очите"</h3>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px; max-width: 850px; text-align: left;">
+                <p data-key="slogan-desc" style="font-size: 1.1rem; color: #444; border-left: 4px solid var(--accent); padding-left: 20px; line-height: 1.8;">
+                    „Въображението оживява“ означава: вярата в невъзможното е първата стъпка към постигането на една мечта. Доказваме на всеки малък ум, че ако можеш да го сънуваш, можеш и да го постигнеш!
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <div class="card-header">
+                        <div class="icon-wrap"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23f4c542' d='M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z'/></svg>" style="width: 40px;"></div>
+                        <h3 data-key="ben-1-title">Развитие на въображението</h3>
+                    </div>
+                    <p class="benefit-text" data-key="ben-1-text">Живото изпълнение стимулира символичното мислене и креативността. Подпомага когнитивната гъвкавост и уменията за решаване на проблеми.</p>
+                    <div class="card-footer"><span class="source-link" data-key="ben-1-src">Американска академия по педиатрия</span></div>
+                </div>
+                <div class="benefit-box">
+                    <div class="card-header">
+                        <div class="icon-wrap"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ff6b6b' d='M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.41,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.59,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z'/></svg>" style="width: 40px;"></div>
+                        <h3 data-key="ben-2-title">Емоционална интелигентност</h3>
+                    </div>
+                    <p class="benefit-text" data-key="ben-2-text">Децата, изложени на театър на живо, демонстрират по-силно съчувствие и емоционално разбиране чрез общото разказване на истории.</p>
+                    <div class="card-footer"><span class="source-link" data-key="ben-2-src">Национален фонд за изкуства</span></div>
+                </div>
+                <div class="benefit-box">
+                    <div class="card-header">
+                        <div class="icon-wrap"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2391CADB' d='M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z'/></svg>" style="width: 40px;"></div>
+                        <h3 data-key="ben-3-title">Внимание и обучение</h3>
+                    </div>
+                    <p class="benefit-text" data-key="ben-3-text">Живото изкуство подобрява устойчивото внимание и паметта в сравнение с пасивното гледане на екрани.</p>
+                    <div class="card-footer"><span class="source-link" data-key="ben-3-src">Харвардски университет</span></div>
+                </div>
+                <div class="benefit-box">
+                    <div class="card-header">
+                        <div class="icon-wrap"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%232c3e70' d='M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15 17,16.5V19H23V16.5C23,14.17 18.33,13 16,13M8,13C5.67,13 1,14.17 1,16.5V19H15V16.5C15,14.17 10.33,13 8,13M8,11A3,3 0 0,0 11,8A3,3 0 0,0 8,5A3,3 0 0,0 5,8A3,3 0 0,0 8,11M16,11A3,3 0 0,0 19,8A3,3 0 0,0 16,5A3,3 0 0,0 13,8A3,3 0 0,0 16,11Z'/></svg>" style="width: 40px;"></div>
+                        <h3 data-key="ben-4-title">Социална увереност</h3>
+                    </div>
+                    <p class="benefit-text" data-key="ben-4-text">Интерактивните изпълнения насърчават участието, намаляват сценичния страх и подпомагат комуникационната увереност.</p>
+                    <div class="card-footer"><span class="source-link" data-key="ben-4-src">Проучвания за обществена ангажираност</span></div>
+                </div>
+            </div>
+
+            <div class="one-line-footer">
+                <p data-key="closing-statement" style="font-size: 1.1rem; color: #444; display: inline-block;">
+                    Магическото шоу на живо не е само забавление – то е развиващо преживяване, което подхранва любопитството, смелостта и радостта.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background-color: var(--mint); padding: 60px 5%; scroll-margin-top: 80px;">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; margin-bottom: 5px;">
+                <div style="text-align: left;">
+                    <h2 data-key="about-title-short" style="color: var(--accent); font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;">Относно</h2>
+                    <div style="width: 40px; height: 3px; background: var(--magic-red); border-radius: 2px;"></div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 25px; border-bottom: 1px solid rgba(44,62,112,0.1); padding-bottom: 10px;">
+                <h2 data-key="about-name" style="font-size: clamp(32px, 6vw, 64px); font-family: 'Cinzel', serif; color: var(--primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: 2px 2px 4px rgba(0,0,0,0.05);">Мърдок Илюзионистът</h2>
+            </div>
+
+            <div style="max-width: 900px; margin: 0 auto 40px; text-align: center;">
+                <p data-key="about-p" style="font-size: 1.2rem; color: #444; font-style: italic; line-height: 1.8;">
+                    Мърдок е професионален илюзионист от България, създаващ театрални преживявания, в които децата участват, смеят се и вярват в чудеса.
+                </p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+                <div style="flex: 1; min-width: 300px;">
+                    <div style="width: 100%; aspect-ratio: 4/5; background-color: #ddd; border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--primary); color: #888;">
+                        <span style="font-family: 'Cinzel', serif;">Photo of Murdock</span>
+                    </div>
+                </div>
+                <div style="flex: 1.5; min-width: 300px; text-align: left;">
+                    <p style="color: #666; line-height: 1.7; font-size: 1.05rem;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        <br><br>
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  <div style="display: flex; gap: 20px; margin-top: 25px; justify-content: flex-start;">
+    <a href="#" target="_blank" style="transition: 0.3s; opacity: 0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+    <a href="#" target="_blank" style="transition: 0.3s; opacity: 0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </a>
+    <a href="#" target="_blank" style="transition: 0.3s; opacity: 0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.14 1 12 1 12s0 3.86.42 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.86 23 12 23 12s0-3.86-.42-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
+    </a>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="venues" style="background-color: white; padding: 40px 5%; overflow: hidden;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-around; align-items: center; gap: 30px; flex-wrap: wrap; opacity: 0.6; filter: grayscale(100%);">
+                <img src="https://via.placeholder.com/120x60?text=Venue+1" alt="Venue 1" style="max-height: 50px; width: auto;">
+                <img src="https://via.placeholder.com/120x60?text=Venue+2" alt="Venue 2" style="max-height: 50px; width: auto;">
+                <img src="https://via.placeholder.com/120x60?text=Venue+3" alt="Venue 3" style="max-height: 50px; width: auto;">
+                <img src="https://via.placeholder.com/120x60?text=Venue+4" alt="Venue 4" style="max-height: 50px; width: auto;">
+                <img src="https://via.placeholder.com/120x60?text=Venue+5" alt="Venue 5" style="max-height: 50px; width: auto;">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--primary); padding: 60px 5%; color: white; scroll-margin-top: 80px;">
+        <div class="container">
+            <div style="text-align: left; margin-bottom: 5px;">
+                <h2 data-key="secret-label" style="color: var(--accent); font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; font-family: 'Cinzel', serif;">Тайната беше разкрита</h2>
+                <div style="width: 40px; height: 3px; background: var(--magic-red); border-radius: 2px;"></div>
+            </div>
+            <div style="text-align: center; margin-bottom: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
+                <h2 data-key="booking-title" style="font-size: clamp(24px, 4vw, 36px); font-family: 'Cinzel', serif; color: white;">Запазете своето преживяване сега!</h2>
+            </div>
+            
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <div class="hero-btns" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 35px; margin-bottom: 35px;">
+                    <a href="tel:+359899492627" class="btn" style="background: white; color: #333; width: 180px; padding: 10px 0;" data-key="btn-call">📞 Обадете ми се</a>
+                    <a href="https://wa.me/359899492627" class="btn" target="_blank" style="background: white; color: #333; width: 180px; padding: 10px 0;" data-key="btn-wa">WhatsApp</a>
+                </div>
+                <p data-key="booking-p" style="font-size: 1rem; color: rgba(255,255,255,0.7); letter-spacing: 1px; margin-bottom: 10px;">Детски градини • Училища • Рождени дни • Детски празници • Фестивали • Културни събития</p>
+            </div>
+        </div>
+    </section>
+
+ <footer style="background-color: #f4f4f7; padding: 10px 5% 10px; border-top: 1px solid #e1e1e8; text-align: center;">
+        <div class="container">
+            <div style="color: var(--accent); font-size: 20px; margin-bottom: 5px;">✦</div>
+            
+            <div style="font-family: 'Cinzel', serif; color: var(--primary); letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 10px;">
+                &copy; Murdock the Magician ★ 2026 ★ The heart of Bulgaria
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <a href="#" style="text-decoration: none; color: #888; font-size: 0.75rem; margin: 0 12px; transition: 0.3s; border-bottom: 1px solid transparent;" onmouseover="this.style.borderBottom='1px solid #ccc'" onmouseout="this.style.borderBottom='1px solid transparent'">Privacy Policy</a>
+                <a href="#" style="text-decoration: none; color: #888; font-size: 0.75rem; margin: 0 12px; transition: 0.3s; border-bottom: 1px solid transparent;" onmouseover="this.style.borderBottom='1px solid #ccc'" onmouseout="this.style.borderBottom='1px solid transparent'">Cookie Policy</a>
+                <a href="#" style="text-decoration: none; color: #888; font-size: 0.75rem; margin: 0 12px; transition: 0.3s; border-bottom: 1px solid transparent;" onmouseover="this.style.borderBottom='1px solid #ccc'" onmouseout="this.style.borderBottom='1px solid transparent'">Terms of Service</a>
+            </div>
+
+            <div style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 10px; max-width: 400px; margin: 0 auto;">
+    <p style="font-size: 0.65rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase;">
+        Website by: <span style="color: #888; font-weight: 600;">Ester Ferenczy - SineCera -</span>
+    </p>
+</div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            bg: {
+              "nav-gallery": "Галерия",
+                "nav-about": "За мен", "nav-benefits": "Защо магия на живо?", "nav-booking": "Резервации",
+                "hero-sub": "Представяме", "hero-title": "Тайната на живата магия", "hero-p": "Въображението оживява",
+                "btn-call": "📞 Обадете ми се", "btn-wa": "WhatsApp",
+                "gallery-title": "Позволете ми да ви покажа", "view-all": "ВИЖ ВСИЧКИ СНИМКИ",
+                "benefits-title": "Защо магия на живо?", "benefits-quote": '"Най-същественото е невидимо за очите"',
+                "slogan-desc": "„Въображението оживява“ означава: вярата в невъзможното е първата стъпка към постигането на една мечта. Доказваме на всеки малък ум, че ако можеш да го сънуваш, можеш и да го постигнеш!",
+                "ben-1-title": "Развитие на въображението", "ben-1-text": "Живото изпълнение стимулира символичното мислене и креативността. Подпомага когнитивната гъвкавост и уменията за решаване на проблеми.", "ben-1-src": "Американска академия по педиатрия",
+                "ben-2-title": "Емоционална интелигентност", "ben-2-text": "Децата, изложени на театър на живо, демонстрират по-силно съчувствие и емоционално разбиране чрез общото разказване на истории.", "ben-2-src": "Национален фонд за изкуства",
+                "ben-3-title": "Внимание и обучение", "ben-3-text": "Живото изкуство подобрява устойчивото внимание и паметта в сравнение с пасивното гледане на екрани.", "ben-3-src": "Харвардски университет",
+                "ben-4-title": "Социална увереност", "ben-4-text": "Интерактивните изпълнения насърчават участието, намаляват сценичния страх и подпомагат комуникационната увереност.", "ben-4-src": "Проучвания за обществена ангажираност",
+                "closing-statement": "Магическото шоу на живо не е само забавление – то е развиващо преживяване, което подхранва любопитството, смелостта и радостта.",
+                "about-title-short": "Относно", "about-name": "Мърдок Илюзионистът", "about-p": "Мърдок е професионален илюзионист от България, създаващ театрални преживявания, в които децата участват, смеят се и вярват в чудеса.",
+                "secret-label": "Тайната беше разкрита", "booking-title": "Запазете своето преживяване сега!", 
+                "booking-p": "Детски градини • Училища • Рождени дни • Детски празници • Фестивали • Културни събития"
+            },
+            en: {
+              "nav-gallery": "Gallery",
+                "nav-about": "About", "nav-benefits": "Why Live Magic?", "nav-booking": "Booking",
+                "hero-sub": "Introducing", "hero-title": "The Secret of Live Magic", "hero-p": "Imagination brought to life",
+                "btn-call": "📞 Call me", "btn-wa": "WhatsApp",
+                "gallery-title": "Let me show you", "view-all": "VIEW ALL PHOTOS",
+                "benefits-title": "Why Live Magic?", "benefits-quote": '"What is essential is invisible to the eye"',
+                "slogan-desc": "\"Imagination brought to life\" means: believing in the impossible is the first step towards achieving a dream. We prove to every little mind that if you can dream it, you can achieve it!",
+                "ben-1-title": "Imagination Development", "ben-1-text": "Live performance stimulates symbolic thinking and creativity. Imaginative play supports cognitive flexibility and problem-solving skills.", "ben-1-src": "American Academy of Pediatrics",
+                "ben-2-title": "Emotional Intelligence", "ben-2-text": "Children exposed to live theatre demonstrate stronger empathy and emotional understanding through shared storytelling.", "ben-2-src": "National Endowment for the Arts",
+                "ben-3-title": "Attention & Learning", "ben-3-text": "Live artistic experiences improve sustained attention and memory compared to passive screen viewing.", "ben-3-src": "Harvard Graduate School of Education",
+                "ben-4-title": "Social Confidence", "ben-4-text": "Interactive performances encourage participation, reducing stage fear and supporting communication confidence.", "ben-4-src": "Community Engagement Studies",
+                "closing-statement": "A live magic show is not only entertainment — it is a developmental experience that nourishes curiosity, courage and joy.",
+                "about-title-short": "About", "about-name": "Murdock the Magician", "about-p": "Murdock is a professional illusionist from Bulgaria, creating theatrical experiences where children participate, laugh and believe in miracles.",
+                "secret-label": "The secret has been revealed", "booking-title": "Book your experience now!", 
+                "booking-p": "Kindergartens • Schools • Birthdays • Children's milestones • Festivals • Cultural Events"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+        }
+    </script>
+</body>
+</html>
