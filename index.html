@@ -37,17 +37,37 @@
         .lang-btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd; cursor: pointer; overflow: hidden; padding: 0; margin-left: 10px; }
         .lang-btn img { width: 100%; height: 100%; object-fit: cover; }
 
-        .hero {
-            min-height: 70vh; display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden; padding: 4rem 5% 2rem;
-            background-color: #f9f9fb;
-        }
+       .hero {
+    position: relative;
+    height: 100vh;           /* Full height of the browser */
+    width: 100%;
+    overflow: hidden;        /* Keeps stars from floating off-screen */
+    display: flex;
+    align-items: center;     /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    background-color: #000;  /* Black background while photo loads */
+}
+
+/* The Background Image Layer */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* Fills the screen without stretching */
+    object-position: center; /* Keeps Murdock centered */
+    z-index: 1;              /* Layer 1: Back */
+    filter: brightness(0.6); /* Makes the photo slightly darker so text is readable */
+}
 
         .star {
             position: absolute; background: var(--accent); 
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
             opacity: 0.5; animation: floatUp 8s linear infinite; bottom: -50px;
-        }
+            z-index: 2;              /* Layer 2: Middle */
+            pointer-events: none;    /* So clicks go "through" stars to reach buttons */
+}
 
         @keyframes floatUp {
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
@@ -56,7 +76,13 @@
             100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
-        .hero-content { max-width: 850px; text-align: center; z-index: 10; position: relative; }
+        .hero-content {
+    position: relative;
+    z-index: 3;              /* Layer 3: Front */
+    text-align: center;
+    color: white;
+    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8); /* Helps text pop against the photo */
+}
         .hero h1 span { display: block; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: var(--magic-red); font-weight: 600; }
         .hero h1 div { font-size: clamp(32px, 5vw, 56px); margin-bottom: 10px; color: var(--primary); }
         
