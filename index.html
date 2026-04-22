@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Murdock Magic X</title>
-<meta name="description" content="Открийте тайната на живата магия с Мърдок. Магически и илюзионни шоу програми за събития, партита и корпоративни гала вечери в България. Резервирайте днес!">
+    <meta name="description" content="Открийте тайната на живата магия с Мърдок. Магически и илюзионни шоу програми за събития, партита и корпоративни гала вечери в България. Резервирайте днес!">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
@@ -40,36 +41,35 @@
         .lang-btn img { width: 100%; height: 100%; object-fit: cover; }
 
        .hero {
-    position: relative;
-    height: 100vh;           /* Full height of the browser */
-    width: 100%;
-    overflow: hidden;        /* Keeps stars from floating off-screen */
-    display: flex;
-    align-items: center;     /* Centers text vertically */
-    justify-content: center; /* Centers text horizontally */
-    background-color: #000;  /* Black background while photo loads */
-}
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
 
-/* The Background Image Layer */
-.hero-bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       /* Fills the screen without stretching */
-    object-position: center; /* Keeps Murdock centered */
-    z-index: 1;              /* Layer 1: Back */
-    filter: brightness(0.6); /* Makes the photo slightly darker so text is readable */
-}
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+            filter: brightness(0.6);
+        }
 
         .star {
             position: absolute; background: var(--accent); 
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
             opacity: 0.5; animation: floatUp 8s linear infinite; bottom: -50px;
-            z-index: 2;              /* Layer 2: Middle */
-            pointer-events: none;    /* So clicks go "through" stars to reach buttons */
-}
+            z-index: 2;
+            pointer-events: none;
+        }
 
         @keyframes floatUp {
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
@@ -79,12 +79,12 @@
         }
 
         .hero-content {
-    position: relative;
-    z-index: 3;              /* Layer 3: Front */
-    text-align: center;
-    color: white;
-    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8); /* Helps text pop against the photo */
-}
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+        }
         .hero h1 span { display: block; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: var(--magic-red); font-weight: 600; }
         .hero h1 div { font-size: clamp(32px, 5vw, 56px); margin-bottom: 10px; color: var(--primary); }
         
@@ -171,6 +171,28 @@
             text-overflow: ellipsis;
         }
 
+        /* Social Media Styling */
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+            justify-content: flex-start;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: 0.3s;
+            opacity: 0.6;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            color: var(--magic-red);
+        }
+
         .one-line-footer {
             text-align: center; 
             margin-top: 20px;
@@ -183,6 +205,7 @@
             body { padding-top: 140px; }
             .one-line-footer { white-space: normal; }
             .card-header { height: auto; margin-bottom: 1.5rem; }
+            .social-links { justify-content: center; }
         }
     </style>
 </head>
@@ -364,18 +387,19 @@
                         <br><br>
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                  <div style="display: flex; gap: 20px; margin-top: 25px; justify-content: flex-start;">
-    <a href="#" target="_blank" style="transition: 0.3s; opacity: 0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-    </a>
-    <a href="#" target="_blank" style="transition: 0.3s; opacity: 0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-    </a>
-    <a href="#" target="_blank" style="transition: 0.3s; opacity: 0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.14 1 12 1 12s0 3.86.42 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.86 23 12 23 12s0-3.86-.42-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
-    </a>
-</div>
-                </div>
+
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/murdockmagicx" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/murdockmagicx" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@murdockmagicx?_r=1&_t=ZN-95kwRCAtIuM" target="_blank" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -427,57 +451,95 @@
             </div>
 
             <div style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 10px; max-width: 400px; margin: 0 auto;">
-    <p style="font-size: 0.65rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase;">
-        Website by: <span style="color: #888; font-weight: 600;">Ester Ferenczy - SineCera -</span>
-    </p>
-</div>
+                <p style="font-size: 0.65rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase;">
+                    Website by: <span style="color: #888; font-weight: 600;">Ester Ferenczy - SineCera -</span>
+                </p>
+            </div>
         </div>
     </footer>
 
     <script>
         const translations = {
             bg: {
-              "nav-gallery": "Галерия",
-                "nav-about": "За мен", "nav-benefits": "Защо магия на живо?", "nav-booking": "Резервации",
-                "hero-sub": "Представяме", "hero-title": "Тайната на живата магия", "hero-p": "Въображението оживява",
-                "btn-call": "📞 Обадете ми се", "btn-wa": "WhatsApp",
-                "gallery-title": "Позволете ми да ви покажа", "view-all": "ВИЖ ВСИЧКИ СНИМКИ",
-                "benefits-title": "Защо магия на живо?", "benefits-quote": '"Най-същественото е невидимо за очите"',
+                "nav-gallery": "Галерия",
+                "nav-about": "За мен", 
+                "nav-benefits": "Защо магия на живо?", 
+                "nav-booking": "Резервации",
+                "hero-sub": "Представяме", 
+                "hero-title": "Тайната на живата магия", 
+                "hero-p": "Въображението оживява",
+                "btn-call": "📞 Обадете ми се", 
+                "btn-wa": "WhatsApp",
+                "gallery-title": "Позволете ми да ви покажа", 
+                "view-all": "ВИЖ ВСИЧКИ СНИМКИ",
+                "benefits-title": "Защо магия на живо?", 
+                "benefits-quote": '"Най-същественото е невидимо за очите"',
                 "slogan-desc": "„Въображението оживява“ означава: вярата в невъзможното е първата стъпка към постигането на една мечта. Доказваме на всеки малък ум, че ако можеш да го сънуваш, можеш и да го постигнеш!",
-                "ben-1-title": "Развитие на въображението", "ben-1-text": "Живото изпълнение стимулира символичното мислене и креативността. Подпомага когнитивната гъвкавост и уменията за решаване на проблеми.", "ben-1-src": "Американска академия по педиатрия",
-                "ben-2-title": "Емоционална интелигентност", "ben-2-text": "Децата, изложени на театър на живо, демонстрират по-силно съчувствие и емоционално разбиране чрез общото разказване на истории.", "ben-2-src": "Национален фонд за изкуства",
-                "ben-3-title": "Внимание и обучение", "ben-3-text": "Живото изкуство подобрява устойчивото внимание и паметта в сравнение с пасивното гледане на екрани.", "ben-3-src": "Харвардски университет",
-                "ben-4-title": "Социална увереност", "ben-4-text": "Интерактивните изпълнения насърчават участието, намаляват сценичния страх и подпомагат комуникационната увереност.", "ben-4-src": "Проучвания за обществена ангажираност",
+                "ben-1-title": "Развитие на въображението", 
+                "ben-1-text": "Живото изпълнение стимулира символичното мислене и креативността. Подпомага когнитивната гъвкавост и уменията за решаване на проблеми.", 
+                "ben-1-src": "Американска академия по педиатрия",
+                "ben-2-title": "Емоционална интелигентност", 
+                "ben-2-text": "Децата, изложени на театър на живо, демонстрират по-силно съчувствие и емоционално разбиране чрез общото разказване на истории.", 
+                "ben-2-src": "Национален фонд за изкуства",
+                "ben-3-title": "Внимание и обучение", 
+                "ben-3-text": "Живото изкуство подобрява устойчивото внимание и паметта в сравнение с пасивното гледане на екрани.", 
+                "ben-3-src": "Харвардски университет",
+                "ben-4-title": "Социална увереност", 
+                "ben-4-text": "Интерактивните изпълнения насърчават участието, намаляват сценичния страх и подпомагат комуникационната увереност.", 
+                "ben-4-src": "Проучвания за обществена ангажираност",
                 "closing-statement": "Магическото шоу на живо не е само забавление – то е развиващо преживяване, което подхранва любопитството, смелостта и радостта.",
-                "about-title-short": "Относно", "about-name": "Мърдок Илюзионистът", "about-p": "Мърдок е професионален илюзионист от България, създаващ театрални преживявания, в които децата участват, смеят се и вярват в чудеса.",
-                "secret-label": "Тайната беше разкрита", "booking-title": "Запазете своето преживяване сега!", 
+                "about-title-short": "Относно", 
+                "about-name": "Мърдок Илюзионистът", 
+                "about-p": "Мърдок е професионален илюзионист от България, създаващ театрални преживявания, в които децата участват, смеят се и вярват в чудеса.",
+                "secret-label": "Тайната беше разкрита", 
+                "booking-title": "Запазете своето преживяване сега!", 
                 "booking-p": "Детски градини • Училища • Рождени дни • Детски празници • Фестивали • Културни събития"
             },
             en: {
-              "nav-gallery": "Gallery",
-                "nav-about": "About", "nav-benefits": "Why Live Magic?", "nav-booking": "Booking",
-                "hero-sub": "Introducing", "hero-title": "The Secret of Live Magic", "hero-p": "Imagination brought to life",
-                "btn-call": "📞 Call me", "btn-wa": "WhatsApp",
-                "gallery-title": "Let me show you", "view-all": "VIEW ALL PHOTOS",
-                "benefits-title": "Why Live Magic?", "benefits-quote": '"What is essential is invisible to the eye"',
+                "nav-gallery": "Gallery",
+                "nav-about": "About", 
+                "nav-benefits": "Why Live Magic?", 
+                "nav-booking": "Booking",
+                "hero-sub": "Introducing", 
+                "hero-title": "The Secret of Live Magic", 
+                "hero-p": "Imagination brought to life",
+                "btn-call": "📞 Call me", 
+                "btn-wa": "WhatsApp",
+                "gallery-title": "Let me show you", 
+                "view-all": "VIEW ALL PHOTOS",
+                "benefits-title": "Why Live Magic?", 
+                "benefits-quote": '"What is essential is invisible to the eye"',
                 "slogan-desc": "\"Imagination brought to life\" means: believing in the impossible is the first step towards achieving a dream. We prove to every little mind that if you can dream it, you can achieve it!",
-                "ben-1-title": "Imagination Development", "ben-1-text": "Live performance stimulates symbolic thinking and creativity. Imaginative play supports cognitive flexibility and problem-solving skills.", "ben-1-src": "American Academy of Pediatrics",
-                "ben-2-title": "Emotional Intelligence", "ben-2-text": "Children exposed to live theatre demonstrate stronger empathy and emotional understanding through shared storytelling.", "ben-2-src": "National Endowment for the Arts",
-                "ben-3-title": "Attention & Learning", "ben-3-text": "Live artistic experiences improve sustained attention and memory compared to passive screen viewing.", "ben-3-src": "Harvard Graduate School of Education",
-                "ben-4-title": "Social Confidence", "ben-4-text": "Interactive performances encourage participation, reducing stage fear and supporting communication confidence.", "ben-4-src": "Community Engagement Studies",
-                "closing-statement": "A live magic show is not only entertainment — it is a developmental experience that nourishes curiosity, courage and joy.",
-                "about-title-short": "About", "about-name": "Murdock the Magician", "about-p": "Murdock is a professional illusionist from Bulgaria, creating theatrical experiences where children participate, laugh and believe in miracles.",
-                "secret-label": "The secret has been revealed", "booking-title": "Book your experience now!", 
-                "booking-p": "Kindergartens • Schools • Birthdays • Children's milestones • Festivals • Cultural Events"
+                "ben-1-title": "Imagination Development", 
+                "ben-1-text": "Live performance stimulates symbolic thinking and creativity. Imaginative play supports cognitive flexibility and problem-solving skills.", 
+                "ben-1-src": "American Academy of Pediatrics",
+                "ben-2-title": "Emotional Intelligence", 
+                "ben-2-text": "Children exposed to live theatre demonstrate stronger empathy and emotional understanding through shared storytelling.", 
+                "ben-2-src": "National Endowment for the Arts",
+                "ben-3-title": "Attention & Learning", 
+                "ben-3-text": "Live artistic experiences improve sustained attention and memory compared to passive screen viewing.", 
+                "ben-3-src": "Harvard Graduate School",
+                "ben-4-title": "Social Confidence",
+                "ben-4-text": "Interactive performances encourage participation, reduce stage fright, and support communication confidence.",
+                "ben-4-src": "Public Engagement Studies",
+                "closing-statement": "A live magic show isn't just entertainment—it's a developmental experience that nurtures curiosity, courage, and joy.",
+                "about-title-short": "About",
+                "about-name": "Murdock the Magician",
+                "about-p": "Murdock is a professional illusionist from Bulgaria, creating theatrical experiences where children participate, laugh, and believe in miracles.",
+                "secret-label": "The secret was revealed",
+                "booking-title": "Book your experience now!",
+                "booking-p": "Kindergartens • Schools • Birthdays • Children's Parties • Festivals • Cultural Events"
             }
         };
 
         function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[lang][key]) el.innerText = translations[lang][key];
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    elem.innerText = translations[lang][key];
+                }
             });
+            document.documentElement.lang = lang;
         }
     </script>
 </body>
